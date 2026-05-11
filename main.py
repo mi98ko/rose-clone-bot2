@@ -10,7 +10,7 @@ from telegram.ext import (
     CallbackQueryHandler, filters, ContextTypes
 )
 
-TOKEN = os.getenv("TOKEN")
+TOKEN = os.getenv("BOT_TOKEN")
 LOG_CHANNEL_ID = int(os.getenv("LOG_CHANNEL_ID", "0"))
 
 # ---------------- DATABASE ----------------
