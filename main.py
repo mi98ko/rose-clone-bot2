@@ -758,3 +758,39 @@ app.add_handler(MessageHandler(
 
 print("Bot Running...")
 app.run_polling()
+# ---------------- MAIN RUN ----------------
+def main():
+    app = ApplicationBuilder().token(TOKEN).build()
+
+    # Commands
+    app.add_handler(CommandHandler("start", cmd_start))
+    app.add_handler(CommandHandler("help", cmd_help))
+
+    app.add_handler(CommandHandler("ban", cmd_ban))
+    app.add_handler(CommandHandler("unban", cmd_unban))
+    app.add_handler(CommandHandler("kick", cmd_kick))
+    app.add_handler(CommandHandler("mute", cmd_mute))
+
+    app.add_handler(CommandHandler("warn", cmd_warn))
+    app.add_handler(CommandHandler("warnings", cmd_warnings))
+    app.add_handler(CommandHandler("resetwarn", cmd_resetwarn))
+
+    app.add_handler(CommandHandler("approve", cmd_approve))
+    app.add_handler(CommandHandler("unapprove", cmd_unapprove))
+
+    app.add_handler(CommandHandler("info", cmd_info))
+
+    app.add_handler(CommandHandler("filter", cmd_add_filter))
+    app.add_handler(CommandHandler("stop", cmd_del_filter))
+    app.add_handler(CommandHandler("filters", cmd_list_filters))
+
+    app.add_handler(CommandHandler("lock", cmd_lock))
+
+    # Callback buttons
+    app.add_handler(CallbackQueryHandler(callback_button))
+
+    print("✅ Bot Started...")
+    app.run_polling()
+
+if __name__ == "__main__":
+    main()
